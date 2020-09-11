@@ -1,0 +1,42 @@
+{% extends "Blog/base.html" %}
+
+{% block content %}
+
+
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+        
+      </div>
+      <h2 class="article-title">{{ object.title }}</h2>
+      <p class="article-content">{{ object.message }}</p>
+      <small class="text-muted">{{ object.likes.all.count }} likes on this post </small>
+      <div class='media-body'>
+        <form action="{% url 'like-post' %}" method="POST">
+          {% csrf_token %}
+          {% if user not in post.likes.all %}
+            <button type="submit" class="btn btn-outline-primary" name="post_id" value="{{ post.id }}" >Like</button> 
+          {% else %}
+            <button type="submit" class="btn btn-outline-warning" name="post_id" value="{{ post.id }}" >Unlike</button> 
+          {% endif %}
+          
+          <button type="button" class="btn btn-light">Commment</button>
+          <button type="button" class="btn btn-light">Share</button>
+          {% if object.author == user %}
+          <a class="btn btn-outline-dark" href="{% url 'post-update' object.id %}">Edit</a>
+          <a class="btn btn-outline-danger" href="{% url 'post-delete' object.id %}">Delete</a>
+        {% endif %}
+        </form>
+      
+      </div>
+      
+    </div>
+  </article>
+    
+ 
+  
+
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends "Blog/base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+
+ 
+
+
+  {% for post in posts %}
+  
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+          </div>
+          <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+          <p class="article-content">{{ post.message }}</p>  
+          <small class="text-muted">{{ post.likes.all.count }}<i class="far fa-thumbs-up"></i> on this post </small> 
+          <div class='media-body'>
+            <form action="{% url 'like-post' %}" method="POST">
+              {% csrf_token %}
+              {% if user not in post.likes.all %}
+                <button type="submit" class="btn btn-outline-primary" name="post_id" value="{{ post.id }}" ><i class="far fa-thumbs-up"></i> Like</button> 
+              {% else %}
+                <button type="submit" class="btn btn-outline-danger" name="post_id" value="{{ post.id }}" ><i class="far fa-thumbs-down"></i>Dislike</button> 
+              {% endif %}
+          
+              <button type="button" class="btn btn-outline-dark">Comment</button>
+              <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Share
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a class="dropdown-item" href="#"><i class="fab fa-twitter"></i> Twitter</a>
+              </div> 
+            </form>
+          </div>
+        </div>
+    </article>
+
+
+  {% endfor %}
+  
+
+
+  <!-- Pagination is below *DONT DELETE*
+
+   {% if is_paginated %}
+
+      {% if page_obj.has_previous %}
+
+        <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+
+        {% if page_obj.number == num %}
+
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'-3' %}
+          <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+
+
+        {% endif %}
+
+      {% endfor %}
+
+    {% if page_obj.has_next %}
+
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+
+    {% endif %}
+
+  {% endif %}
+   -->
+
+  
+
+  
+   
+   
+{% else%}
+
+
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to Yes! Network🚀</h1>
+    <p class="lead">We help you connect to your lost world. </p>
+    <hr class="my-4">
+    <p>Make your own profile today and let your friends know about it. </p>
+    <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Join Today</a>
+  </div>
+
+  
+  <div class="content-section">
+    <div class="card-group">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/3079978/pexels-photo-3079978.jpeg?cs=srgb&dl=children-standing-next-to-manual-water-pump-3079978.jpg&fm=jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Friends</h5>
+          <p class="card-text">Our Netorking help you coonect to your school friends at just a search. </p>
+        </div>
+      </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/1586257/pexels-photo-1586257.jpeg?cs=srgb&dl=mother-kissing-child-on-cheek-1586257.jpg&fm=jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Family</h5>
+        <p class="card-text">Now you can make your family tree stand more clear with our Family tree tool.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/669996/pexels-photo-669996.jpeg?cs=srgb&dl=black-laptop-beside-black-computer-mouse-inside-room-669996.jpg&fm=jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Work</h5>
+        <p class="card-text">Add your Team Lead with our app and tell him you need a raise! just kidding! </p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+
+<!-- <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+  <div class="text-center">
+    <small>Copyright &copy; Re-Connect
+      <br> Made with <i class="em em-heart" aria-role="presentation" aria-label="BIRD"></i> by yesabhishek</small>
+  </div>
+</footer>  -->
+
+  
+{% endif %}   
+  
+{% endblock %}
+
+
