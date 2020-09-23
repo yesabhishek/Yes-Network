@@ -83,45 +83,25 @@
   
    
    
-{% else%}
+{% else %}
+<div id="particle-container">
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div>
+  
+<div class="particle"></div>
+<div class="particle"></div>
+</div>
 
-
-  <div class="jumbotron">
+  <div class="jumbotron heading">
     <h1 class="display-4">Welcome to Yes! Network🚀</h1>
-    <p class="lead">We help you connect to your lost world. </p>
+    <p class="lead"></p>
     <hr class="my-4">
-    <p>Make your own profile today and let your friends know about it. </p>
+    <p>A Network by people, for the people. Say NO to filtered Internet </p>
     <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Join Today</a>
   </div>
 
-  
-  <div class="content-section">
-    <div class="card-group">
-      <div class="card">
-        <img src="https://images.pexels.com/photos/3079978/pexels-photo-3079978.jpeg?cs=srgb&dl=children-standing-next-to-manual-water-pump-3079978.jpg&fm=jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Friends</h5>
-          <p class="card-text">Our Netorking help you coonect to your school friends at just a search. </p>
-        </div>
-      </div>
-    <div class="card">
-      <img src="https://images.pexels.com/photos/1586257/pexels-photo-1586257.jpeg?cs=srgb&dl=mother-kissing-child-on-cheek-1586257.jpg&fm=jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Family</h5>
-        <p class="card-text">Now you can make your family tree stand more clear with our Family tree tool.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://images.pexels.com/photos/669996/pexels-photo-669996.jpeg?cs=srgb&dl=black-laptop-beside-black-computer-mouse-inside-room-669996.jpg&fm=jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Work</h5>
-        <p class="card-text">Add your Team Lead with our app and tell him you need a raise! just kidding! </p>
-        
-      </div>
-    </div>
-  </div>
-</div>
 
+ 
 <br>
 
 
@@ -131,8 +111,11 @@
       <br> Made with <i class="em em-heart" aria-role="presentation" aria-label="BIRD"></i> by yesabhishek</small>
   </div>
 </footer>  -->
+<div>
 
-  
+
+<h6 class="text-muted">Please read the Guidelines before you make an account. <a class="readnow" href="{% url 'about' %}"> Read Now</a></h6> 
+</div>
 {% endif %}   
   
 {% endblock %}

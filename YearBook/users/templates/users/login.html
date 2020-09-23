@@ -1,25 +1,30 @@
-{% extends "Blog/base.html" %}
+{% extends "Blog/base.html" %} {% load crispy_forms_tags %} {% block content %}
+<div id="particle-container">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
 
-{% load crispy_forms_tags %}
-
-
-{% block content %}
-
+  <div class="particle"></div>
+</div>
 <div class="content-section">
-    <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Log In</legend> 
-            {{ form|crispy }}
-        </fieldset>
-        <div class="class-group">
-            <button class="btn btn-outline-info" type="submit">Log In</button>
-        </div>
-    </form>
-    <div class="border-top pt-3"></div>
-    <small class="text-muted">
-        Need an Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
-    </small>
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Log In</legend>
+      {{ form|crispy }}
+    </fieldset>
+    <div class="class-group">
+      <button class="btn btn-outline-info" type="submit">Log In</button>
+      <span> </span>
+      <button class="btn btn-outline-info" type="submit">
+        Log In using Google
+      </button>
+    </div>
+  </form>
+  <div class="border-top pt-3"></div>
+  <small class="text-muted">
+    Need an Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+  </small>
 </div>
 
 {% endblock content %}

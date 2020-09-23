@@ -92,19 +92,20 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
     return False
 
 def about(request):
-    return render(request, 'Blog/About.html', {'title': 'About'})
+    return render(request, 'Blog/About.html', {'title': 'About Us'})
 
 @login_required
 def security(request):
-    return render(request, 'Blog/security.html', {'title': 'Security'})
+    user = request.user
+    return render(request, 'Blog/settings.html', {'title': 'Settings'})
 
 """ def default(request):
   return render(request, 'Blog/default.html' ) """
-
+""" 
 def active(request):
   return user.is_authenticated
 
-
+ """
 
 """ Like code goes here  """
 
@@ -130,6 +131,6 @@ def like_post(request):
       else:
         like.value = 'Like'
     like.save()    
-  return redirect('blog-home')
+  return redirect('home')
 
 """ Like code ends here  """

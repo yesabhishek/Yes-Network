@@ -1,0 +1,90 @@
+{% extends "Blog/base.html" %} {% block content %}
+<div id="particle-container">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+<h1>Settings</h1>
+<hr />
+<div class="row">
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a
+        class="list-group-item list-group-item-action active"
+        id="list-profile-list"
+        data-toggle="list"
+        href="#list-profile"
+        role="tab"
+        aria-controls="profile"
+        >Account Settings</a
+      >
+      <a
+        class="list-group-item list-group-item-action"
+        id="list-settings-list"
+        data-toggle="list"
+        href="#list-settings"
+        role="tab"
+        aria-controls="settings"
+        >Privacy Settings</a
+      >
+      <a
+        class="list-group-item list-group-item-action"
+        id="list-messages-list"
+        data-toggle="list"
+        href="#list-messages"
+        role="tab"
+        aria-controls="messages"
+        >Delete your account</a
+      >
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="list-profile"
+        role="tabpanel"
+        aria-labelledby="list-profile-list"
+      >
+        <h1>
+          Hello,{{ user.username }} <span className="wave-emoji">👋🏼</span>
+        </h1>
+        <br />
+        You can update your profile to your liking by clicking the below
+        button😄
+        <br />
+
+        <a class="btn btn-primary" href="{% url 'update' %}">Update Profile</a>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="list-messages"
+        role="tabpanel"
+        aria-labelledby="list-messages-list"
+      >
+        Well we dont encourage anything and would like to keep our platform very independent of any choice. You can delete the account anytime.account-heading
+        <br> </br> 
+        Be sure about this, once you push that red button below, this can not be undone 💔
+        <br />
+        <a class="btn btn-danger" href="#">Delete Profile</a>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="list-settings"
+        role="tabpanel"
+        aria-labelledby="list-settings-list"
+      >
+        We all know how important security is and we always try to keep your
+        data secure. In this journey you can also help by updating you password
+        in proper intervals. 
+        <br> </br>
+        You can change the Password by clicking the below button.
+        <br />
+        <a class="btn btn-primary" href="#">Change Password</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
