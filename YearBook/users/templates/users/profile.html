@@ -14,15 +14,15 @@
       <p class="text-secondary"><i>{{ user.email }}</i></p>
       <p class="text-secondary">{{ user.profile.dob }}</p>
       <p class="text-secondary">{{ user.profile.bio }}</p>
+      <p class="text-secondary">{{ user.posts.author }}</p>
+      <!-- <img
+        class="account-img"
+        src="{{ user.profile.cover_img.url }}"
+      /> -->
+
       <p class="text-secondary"></p>
     </div>
   </div>
 </div>
 
-{% if post in Posts %}
-
-<h1>haha</h1>
-{% else %}
-
-<h1>lol</h1>
-{% endif %} {% endblock content %}
+{% endblock content %}
