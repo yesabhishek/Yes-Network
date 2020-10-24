@@ -1,6 +1,6 @@
 # Yes Network ⚡️  [![GitHub stars](https://img.shields.io/github/stars/yesabhishek/Yes-Network)](https://github.com/yesabhishek/Yes-Network/stargazers)  [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
-## The new Unfiltered Social Network.
+## The place where ideas becomes real life project.
 
 
 <p align="center">
